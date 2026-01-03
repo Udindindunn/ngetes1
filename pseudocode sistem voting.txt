@@ -1,0 +1,62 @@
+PROGRAM SistemVotingSederhana
+BEGIN
+    // Deklarasi variabel
+    INTEGER pilihan
+    INTEGER suaraA = 0, suaraB = 0, suaraC = 0
+    CHARACTER ulang
+    
+    // Loop utama program
+    REPEAT
+        // Tampilkan header
+        PRINT_LINE("==========================")
+        PRINT("   SISTEM VOTING SEDERHANA")
+        PRINT_LINE("==========================")
+        
+        // Tampilkan menu kandidat
+        PRINT("1. Kandidat A")
+        PRINT("2. Kandidat B")
+        PRINT("3. Kandidat C")
+        
+        // Input pilihan user
+        PRINT("Pilih kandidat (1-3): ")
+        READ pilihan
+        
+        // Proses voting berdasarkan pilihan
+        SWITCH (pilihan) DO
+            CASE 1:
+                suaraA = suaraA + 1
+                PRINT("Anda memilih Kandidat A")
+                BREAK
+                
+            CASE 2:
+                suaraB = suaraB + 1
+                PRINT("Anda memilih Kandidat B")
+                BREAK
+                
+            CASE 3:
+                suaraC = suaraC + 1
+                PRINT("Anda memilih Kandidat C")
+                BREAK
+                
+            DEFAULT:
+                PRINT("Pilihan tidak valid!")
+        END SWITCH
+        
+        // Tanya apakah ingin voting lagi
+        PRINT_LINE("")
+        PRINT("Apakah ingin voting lagi? (y/n): ")
+        READ ulang
+        PRINT_LINE("")
+        
+    UNTIL (ulang != 'y' AND ulang != 'Y')
+    
+    // Tampilkan hasil akhir
+    PRINT_LINE("==========================")
+    PRINT("     HASIL VOTING")
+    PRINT_LINE("==========================")
+    PRINT("Kandidat A: " + suaraA + " suara")
+    PRINT("Kandidat B: " + suaraB + " suara")
+    PRINT("Kandidat C: " + suaraC + " suara")
+    
+    RETURN 0
+END PROGRAM
